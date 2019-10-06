@@ -24,6 +24,7 @@ public class Main {
         System.out.println("2. Load all phones, distances and phone for range 2 after select 106:");
         System.out.println(u.getPhoneNumberList());
         System.out.println(u.getDistanceToGapList());
+        System.out.println(u.getListOfPhoneForContinuousRangeSize(2));
         System.out.println();
 
         u.selectPhoneWithRange(102L, 2);
