@@ -10,7 +10,7 @@ public class PhoneNumberUtils {
     private List<Long> phoneNumberList;
     private List<Integer> distanceToGapList;
     private Long currentPhone;
-    private Integer currentPosiion;
+    private Integer currentPosition;
     private Integer currentRangeSize;
 
     public PhoneNumberUtils(List<Long> phoneNumberList) {
@@ -34,8 +34,8 @@ public class PhoneNumberUtils {
     }
 
 
-    public Integer getCurrentPosiion() {
-        return currentPosiion;
+    public Integer getCurrentPosition() {
+        return currentPosition;
     }
 
 
@@ -77,14 +77,14 @@ public class PhoneNumberUtils {
             markerAsSelect(phoneNumber, rangeSize);
         }
         this.currentPhone = phoneNumber;
-        this.currentPosiion = this.phoneNumberList.indexOf(phoneNumber);
+        this.currentPosition = this.phoneNumberList.indexOf(phoneNumber);
         this.currentRangeSize = rangeSize;
     }
 
     public void unSelectCurrentPhone(){
         markerAsUnSelect(this.currentPhone, this.currentRangeSize);
         this.currentPhone = null;
-        this.currentPosiion = null;
+        this.currentPosition = null;
         this.currentRangeSize = 0;
     }
 
@@ -95,11 +95,9 @@ public class PhoneNumberUtils {
         List<Long> goodPhoneList = getListOfPhoneForContinuousRangeSize(rangeSize);
         if (goodPhoneList.isEmpty()) return; // todo message of error
         if (goodPhoneList.contains(cPhone)){
-            // unSelectCurrentPhone();
             selectPhoneWithRange(cPhone, rangeSize);
-        } else { // goodPhoneList.get(0)
+        } else {
             selectPhoneWithRange(goodPhoneList.get(0), rangeSize);
-            //markerAsSelect(this.currentPhone, rangeSize);
         }
     }
 
